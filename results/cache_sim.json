@@ -1,0 +1,115 @@
+{
+  "note": "SIMULATION. Unit = one expert, per-layer budget. See script docstring.",
+  "half_b_inputs": 40,
+  "half_b_gen_tokens": 8000,
+  "budgets": {
+    "10pct": {
+      "experts_per_layer": 6,
+      "static_hot_set": {
+        "misses_per_gen_token_mean": 81.07,
+        "share_tokens_zero_misses_pct": 0.0
+      },
+      "lru_cold_start": {
+        "misses_per_gen_token_mean": 112.68,
+        "share_tokens_zero_misses_pct": 0.0
+      },
+      "lru_warm": {
+        "misses_per_gen_token_mean": 112.68,
+        "share_tokens_zero_misses_pct": 0.0
+      },
+      "lru_gen_only_warm": {
+        "misses_per_gen_token_mean": 112.78,
+        "share_tokens_zero_misses_pct": 0.0
+      },
+      "crf_warm": {
+        "misses_per_gen_token_mean": 77.61,
+        "share_tokens_zero_misses_pct": 0.0
+      },
+      "crf_gen_only_warm": {
+        "misses_per_gen_token_mean": 77.78,
+        "share_tokens_zero_misses_pct": 0.0
+      }
+    },
+    "20pct": {
+      "experts_per_layer": 13,
+      "static_hot_set": {
+        "misses_per_gen_token_mean": 59.42,
+        "share_tokens_zero_misses_pct": 0.0
+      },
+      "lru_cold_start": {
+        "misses_per_gen_token_mean": 61.51,
+        "share_tokens_zero_misses_pct": 0.0
+      },
+      "lru_warm": {
+        "misses_per_gen_token_mean": 61.51,
+        "share_tokens_zero_misses_pct": 0.0
+      },
+      "lru_gen_only_warm": {
+        "misses_per_gen_token_mean": 61.79,
+        "share_tokens_zero_misses_pct": 0.0
+      },
+      "crf_warm": {
+        "misses_per_gen_token_mean": 53.52,
+        "share_tokens_zero_misses_pct": 0.0
+      },
+      "crf_gen_only_warm": {
+        "misses_per_gen_token_mean": 51.89,
+        "share_tokens_zero_misses_pct": 0.0
+      }
+    },
+    "30pct": {
+      "experts_per_layer": 19,
+      "static_hot_set": {
+        "misses_per_gen_token_mean": 45.21,
+        "share_tokens_zero_misses_pct": 0.0
+      },
+      "lru_cold_start": {
+        "misses_per_gen_token_mean": 46.55,
+        "share_tokens_zero_misses_pct": 0.0
+      },
+      "lru_warm": {
+        "misses_per_gen_token_mean": 46.55,
+        "share_tokens_zero_misses_pct": 0.0
+      },
+      "lru_gen_only_warm": {
+        "misses_per_gen_token_mean": 46.71,
+        "share_tokens_zero_misses_pct": 0.0
+      },
+      "crf_warm": {
+        "misses_per_gen_token_mean": 41.99,
+        "share_tokens_zero_misses_pct": 0.0
+      },
+      "crf_gen_only_warm": {
+        "misses_per_gen_token_mean": 38.87,
+        "share_tokens_zero_misses_pct": 0.0
+      }
+    },
+    "50pct": {
+      "experts_per_layer": 32,
+      "static_hot_set": {
+        "misses_per_gen_token_mean": 22.23,
+        "share_tokens_zero_misses_pct": 0.0
+      },
+      "lru_cold_start": {
+        "misses_per_gen_token_mean": 23.99,
+        "share_tokens_zero_misses_pct": 0.05
+      },
+      "lru_warm": {
+        "misses_per_gen_token_mean": 23.99,
+        "share_tokens_zero_misses_pct": 0.05
+      },
+      "lru_gen_only_warm": {
+        "misses_per_gen_token_mean": 23.9,
+        "share_tokens_zero_misses_pct": 0.05
+      },
+      "crf_warm": {
+        "misses_per_gen_token_mean": 22.4,
+        "share_tokens_zero_misses_pct": 0.0
+      },
+      "crf_gen_only_warm": {
+        "misses_per_gen_token_mean": 18.96,
+        "share_tokens_zero_misses_pct": 0.0
+      }
+    }
+  }
+}

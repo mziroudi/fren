@@ -203,12 +203,12 @@ def main():
     for ax in axes[:, 0]:
         ax.set_ylabel("% of selections", fontsize=9, color="#52514e")
     handles, labels = axes.flat[0].get_legend_handles_labels()
-    fig.legend(handles, labels, loc="upper center", ncol=4, frameon=False, fontsize=10)
+    fig.legend(handles, labels, loc="lower center", ncol=4, frameon=False, fontsize=10)
     fig.suptitle(
         f"Expert coverage per layer, OLMoE-1B-7B-0125-Instruct Q8_0 ({n_expert} experts, top-{k})",
-        y=1.0, fontsize=12, color="#0b0b0b", x=0.01, ha="left",
+        y=0.995, fontsize=12, color="#0b0b0b", x=0.01, ha="left",
     )
-    fig.tight_layout(rect=(0, 0, 1, 0.95))
+    fig.tight_layout(rect=(0, 0.035, 1, 0.97))
     fig.savefig(res / "coverage.png", dpi=110, facecolor="#fcfcfb")
     print(json.dumps(out, indent=2))
 
