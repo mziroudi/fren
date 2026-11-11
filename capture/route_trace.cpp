@@ -21,7 +21,6 @@
 #include <cstdlib>
 #include <cstring>
 #include <fstream>
-#include <map>
 #include <string>
 #include <vector>
 
@@ -34,7 +33,8 @@ struct trace_state {
     std::string task;
     int         input_id = 0;
     const char * phase = "prompt";
-    std::map<int, long> next_pos; // per layer: position of the next token to be seen
+    long        batch_pos0 = 0;   // position of the first token in the current batch
+    int         batch_n    = 0;   // number of tokens in the current batch
     long        rows = 0;
     int         k = -1;
 };
@@ -69,7 +69,10 @@ static bool trace_cb(struct ggml_tensor * t, bool ask, void * user_data) {
         base = buf.data();
     }
 
-    long & pos = st->next_pos[layer];
+    // llama.cpp computes the last layer only for tokens whose output is requested (the
+    // final token of the batch), so a node can hold fewer tokens than the batch: they are
+    // always the last n_tokens of the batch.
+    const long pos = st->batch_pos0 + (st->batch_n - n_tokens);
     for (int i = 0; i < n_tokens; ++i) {
         const int32_t * row = (const int32_t *) (base + i * t->nb[1]);
         fprintf(st->out, "%s\t%d\t%ld\t%s\t%d\t", st->task.c_str(), st->input_id, pos + i, st->phase, layer);
@@ -79,7 +82,6 @@ static bool trace_cb(struct ggml_tensor * t, bool ask, void * user_data) {
         fputc('\n', st->out);
         st->rows++;
     }
-    pos += n_tokens;
     return true;
 }
 
@@ -149,7 +151,6 @@ int main(int argc, char ** argv) {
         json row = json::parse(line);
         st.task     = row["task"].get<std::string>();
         st.input_id = row["input_id"].get<int>();
-        st.next_pos.clear();
         const std::string user = row["prompt"].get<std::string>();
 
         llama_chat_message msg = { "user", user.c_str() };
@@ -167,6 +168,8 @@ int main(int argc, char ** argv) {
 
         const int64_t t0 = ggml_time_us();
         st.phase = "prompt";
+        st.batch_pos0 = 0;
+        st.batch_n = n_prompt;
         llama_batch_ext_clear(batch);
         for (int i = 0; i < n_prompt; ++i) {
             const int32_t idx = llama_batch_ext_add_token(batch, 0, toks[i]);
@@ -191,6 +194,8 @@ int main(int argc, char ** argv) {
             const llama_pos p = n_pos;
             llama_batch_ext_set_pos(batch, idx, &p);
             llama_batch_ext_set_output_logits(batch, 0, true);
+            st.batch_pos0 = n_pos;
+            st.batch_n = 1;
             if (llama_process(ctx, LLAMA_PROCESS_TYPE_DECODE, batch)) { fprintf(stderr, "decode failed\n"); return 1; }
             n_pos++;
             n_out++;
