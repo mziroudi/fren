@@ -1,0 +1,233 @@
+{
+  "note": "SIMULATION. See script docstring for policies and simplifications.",
+  "profile": "task A half A generated tokens",
+  "replayed": "task A half B",
+  "half_b_inputs": 40,
+  "early_window_tokens": 16,
+  "budgets": {
+    "10pct": {
+      "experts_per_layer": 6,
+      "pinned_per_layer": 3,
+      "static_hot_set": {
+        "misses_per_gen_token": 81.07,
+        "misses_first_tokens": 81.25
+      },
+      "fresh/lru/plain": {
+        "misses_per_gen_token": 112.68,
+        "misses_first_tokens": 111.83
+      },
+      "fresh/lru/seeded": {
+        "misses_per_gen_token": 112.68,
+        "misses_first_tokens": 111.83
+      },
+      "fresh/lru/pinned": {
+        "misses_per_gen_token": 91.8,
+        "misses_first_tokens": 91.64
+      },
+      "fresh/crf/plain": {
+        "misses_per_gen_token": 78.11,
+        "misses_first_tokens": 84.39
+      },
+      "fresh/crf/seeded": {
+        "misses_per_gen_token": 77.66,
+        "misses_first_tokens": 80.73
+      },
+      "fresh/crf/pinned": {
+        "misses_per_gen_token": 77.29,
+        "misses_first_tokens": 81.0
+      },
+      "long_running/lru/plain": {
+        "misses_per_gen_token": 112.68,
+        "misses_first_tokens": 111.83
+      },
+      "long_running/lru/seeded": {
+        "misses_per_gen_token": 112.68,
+        "misses_first_tokens": 111.83
+      },
+      "long_running/lru/pinned": {
+        "misses_per_gen_token": 91.8,
+        "misses_first_tokens": 91.64
+      },
+      "long_running/crf/plain": {
+        "misses_per_gen_token": 77.78,
+        "misses_first_tokens": 81.36
+      },
+      "long_running/crf/seeded": {
+        "misses_per_gen_token": 77.78,
+        "misses_first_tokens": 81.36
+      },
+      "long_running/crf/pinned": {
+        "misses_per_gen_token": 77.13,
+        "misses_first_tokens": 79.41
+      }
+    },
+    "20pct": {
+      "experts_per_layer": 13,
+      "pinned_per_layer": 6,
+      "static_hot_set": {
+        "misses_per_gen_token": 59.42,
+        "misses_first_tokens": 59.99
+      },
+      "fresh/lru/plain": {
+        "misses_per_gen_token": 61.52,
+        "misses_first_tokens": 64.26
+      },
+      "fresh/lru/seeded": {
+        "misses_per_gen_token": 61.51,
+        "misses_first_tokens": 64.11
+      },
+      "fresh/lru/pinned": {
+        "misses_per_gen_token": 58.65,
+        "misses_first_tokens": 59.72
+      },
+      "fresh/crf/plain": {
+        "misses_per_gen_token": 52.75,
+        "misses_first_tokens": 63.47
+      },
+      "fresh/crf/seeded": {
+        "misses_per_gen_token": 51.61,
+        "misses_first_tokens": 54.65
+      },
+      "fresh/crf/pinned": {
+        "misses_per_gen_token": 52.52,
+        "misses_first_tokens": 58.34
+      },
+      "long_running/lru/plain": {
+        "misses_per_gen_token": 61.51,
+        "misses_first_tokens": 64.2
+      },
+      "long_running/lru/seeded": {
+        "misses_per_gen_token": 61.51,
+        "misses_first_tokens": 64.2
+      },
+      "long_running/lru/pinned": {
+        "misses_per_gen_token": 58.65,
+        "misses_first_tokens": 59.72
+      },
+      "long_running/crf/plain": {
+        "misses_per_gen_token": 51.89,
+        "misses_first_tokens": 56.44
+      },
+      "long_running/crf/seeded": {
+        "misses_per_gen_token": 51.89,
+        "misses_first_tokens": 56.44
+      },
+      "long_running/crf/pinned": {
+        "misses_per_gen_token": 52.1,
+        "misses_first_tokens": 55.97
+      }
+    },
+    "30pct": {
+      "experts_per_layer": 19,
+      "pinned_per_layer": 9,
+      "static_hot_set": {
+        "misses_per_gen_token": 45.21,
+        "misses_first_tokens": 45.14
+      },
+      "fresh/lru/plain": {
+        "misses_per_gen_token": 46.56,
+        "misses_first_tokens": 50.41
+      },
+      "fresh/lru/seeded": {
+        "misses_per_gen_token": 46.53,
+        "misses_first_tokens": 49.97
+      },
+      "fresh/lru/pinned": {
+        "misses_per_gen_token": 42.94,
+        "misses_first_tokens": 45.17
+      },
+      "fresh/crf/plain": {
+        "misses_per_gen_token": 40.14,
+        "misses_first_tokens": 54.35
+      },
+      "fresh/crf/seeded": {
+        "misses_per_gen_token": 38.5,
+        "misses_first_tokens": 41.06
+      },
+      "fresh/crf/pinned": {
+        "misses_per_gen_token": 39.43,
+        "misses_first_tokens": 46.31
+      },
+      "long_running/lru/plain": {
+        "misses_per_gen_token": 46.55,
+        "misses_first_tokens": 50.2
+      },
+      "long_running/lru/seeded": {
+        "misses_per_gen_token": 46.55,
+        "misses_first_tokens": 50.2
+      },
+      "long_running/lru/pinned": {
+        "misses_per_gen_token": 42.94,
+        "misses_first_tokens": 45.15
+      },
+      "long_running/crf/plain": {
+        "misses_per_gen_token": 38.87,
+        "misses_first_tokens": 42.98
+      },
+      "long_running/crf/seeded": {
+        "misses_per_gen_token": 38.87,
+        "misses_first_tokens": 42.98
+      },
+      "long_running/crf/pinned": {
+        "misses_per_gen_token": 38.87,
+        "misses_first_tokens": 42.65
+      }
+    },
+    "50pct": {
+      "experts_per_layer": 32,
+      "pinned_per_layer": 16,
+      "static_hot_set": {
+        "misses_per_gen_token": 22.23,
+        "misses_first_tokens": 19.65
+      },
+      "fresh/lru/plain": {
+        "misses_per_gen_token": 24.04,
+        "misses_first_tokens": 30.92
+      },
+      "fresh/lru/seeded": {
+        "misses_per_gen_token": 23.96,
+        "misses_first_tokens": 29.95
+      },
+      "fresh/lru/pinned": {
+        "misses_per_gen_token": 21.57,
+        "misses_first_tokens": 24.64
+      },
+      "fresh/crf/plain": {
+        "misses_per_gen_token": 21.13,
+        "misses_first_tokens": 43.05
+      },
+      "fresh/crf/seeded": {
+        "misses_per_gen_token": 18.46,
+        "misses_first_tokens": 18.44
+      },
+      "fresh/crf/pinned": {
+        "misses_per_gen_token": 19.74,
+        "misses_first_tokens": 28.56
+      },
+      "long_running/lru/plain": {
+        "misses_per_gen_token": 23.99,
+        "misses_first_tokens": 30.27
+      },
+      "long_running/lru/seeded": {
+        "misses_per_gen_token": 23.99,
+        "misses_first_tokens": 30.27
+      },
+      "long_running/lru/pinned": {
+        "misses_per_gen_token": 21.55,
+        "misses_first_tokens": 24.48
+      },
+      "long_running/crf/plain": {
+        "misses_per_gen_token": 18.96,
+        "misses_first_tokens": 20.83
+      },
+      "long_running/crf/seeded": {
+        "misses_per_gen_token": 18.96,
+        "misses_first_tokens": 20.83
+      },
+      "long_running/crf/pinned": {
+        "misses_per_gen_token": 18.94,
+        "misses_first_tokens": 20.65
+      }
+    }
+  }
+}

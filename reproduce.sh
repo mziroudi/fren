@@ -15,3 +15,4 @@ fi
 python3 analysis/to_parquet.py   # -> results/routing_trace.parquet, results/routing.parquet (+ sanity checks)
 python3 analysis/coverage.py     # -> results/coverage.png, coverage_by_layer.csv, coverage_summary.json
 python3 analysis/cache_sim.py    # -> results/cache_sim.json
+python3 analysis/seeded_cache_sim.py  # -> results/seeded_cache.json (follow-up)

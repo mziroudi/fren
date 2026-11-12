@@ -100,6 +100,9 @@ Mean cold experts per generated token on half B, at the same per-layer budget:
 | 30% | 45.2 | 46.6 | 42.0 | **38.9** |
 | 50% | 22.2 | 24.0 | 22.4 | **19.0** |
 
+- **Which CRF column is realistic:** "CRF, gen only". llama.cpp skips its MoE cache for
+  ubatches over 32 tokens (`src/llama-moe-cache.cpp`, `max_batch = 32`), so prompt
+  processing never updates it.
 - **Static vs LRU (RAM tier):** at the 20–50% budgets that matter, the static set saves only
   3–7% of misses compared with LRU. A starting-empty LRU and a warm LRU give the same numbers,
   because one prompt fills the cache. As CLAUDE.md asks us to say plainly: **LRU nearly
@@ -162,3 +165,12 @@ prefetch. It should not use the profile as a fixed pin list.
    existing trace.
 3. **Re-run the kill test on a fine-grained MoE** (e.g. Qwen3-30B-A3B). That needs a machine
    with more RAM, or a cloud box for the profile; routing doesn't depend on hardware.
+
+## Follow-up
+
+`results/seeded_cache.md` (SIMULATION) tests whether the profile helps on top of the adaptive
+caches. It helps a little and doesn't change the NO-GO:
+- pinning half the budget next to the page cache: 5–10% fewer misses;
+- seeding llama.cpp's MoE cache in a fresh process: 2–13% fewer misses, mostly in the first
+  tokens;
+- for a long-running server: nothing.
